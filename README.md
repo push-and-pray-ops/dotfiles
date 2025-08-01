@@ -1,2 +1,2 @@
 # dotfiles
-dotfiles windows, linux, mac, freebsd, whatever
+dotfiles for windows, linux, mac, freebsd, whatever
