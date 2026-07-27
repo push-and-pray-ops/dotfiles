@@ -37,3 +37,22 @@ venv() {
     fi
     source .venv/bin/activate
 }
+
+llmd() {
+  # see https://github.com/simonw/llm/issues/12 for more solutions to paging the output of llm
+  # and especially https://github.com/simonw/llm/issues/1112#issuecomment-3433913273
+  llm "$@" | glow
+}
+
+# from https://github.com/simonw/llm/issues/1112#issuecomment-3433913273
+llmd-stream() {
+    uv tool run \
+     --with git+https://github.com/AdrianVollmer/llm-richify.git \
+     --with git+https://github.com/simonw/llm-openai-via-codex.git \
+     --from git+https://github.com/AdrianVollmer/llm.git@feature/ui-plugins \
+     llm -m openai-codex/gpt-5.5 "$@"
+}
+
+llm-logs() {
+    llm logs -n 3
+}

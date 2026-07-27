@@ -88,8 +88,8 @@ Function grep($name) { $Input | Out-String -Stream | Select-String $name }
 Function hgrep($searchStr) { cat (getps).HistorySavePath | grep $searchStr }
 
 Function vm {
-  $host.ui.RawUI.WindowTitle = "Personal Dev VM (Kube Access)"
-  ssh east_vm
+        $host.ui.RawUI.WindowTitle = "Personal Dev VM (Kube Access)"
+        ssh east_vm
 }
 
 Function dev {
@@ -129,7 +129,7 @@ Function ssh-forward-bastion {
 Function ssh-forward {
   param([string]$ip)
   # ssh forwarding, add -f for background
-  ssh -v -N -L 8443:$ip:443 pp1-bastion
+        ssh -v -N -L 8443:$ip:443 pp1-bastion
 }
 
 Function viewports {
@@ -140,16 +140,16 @@ Function viewports {
 
 ## Get your current public IP
 Function Get-PubIP {
- (Invoke-WebRequest <ins>http://ifconfig.me/ip</ins> ).Content
+        (Invoke-WebRequest <ins>http://ifconfig.me/ip</ins> ).Content
 }
 
 ## Get the date and time in UTC**
 Function Get-Zulu {
-  Get-Date -Format u
+        Get-Date -Format u
 }
 
 Function Get-Pass {
-  -join(48..57+65..90+97..122|ForEach-Object{[char]$_}|Get-Random -C 20)
+        -join(48..57+65..90+97..122|ForEach-Object{[char]$_}|Get-Random -C 20)
 }
 
 function uptime {
@@ -226,8 +226,8 @@ function pgrep($name) {
 Function repeatme { $Input | Write-Error "$args" } 
 
 Function grep2 { 
-    param([string]$pattern)
-    $Input | Out-String -Stream | Select-String -Pattern $pattern
+        param([string]$pattern)
+        $Input | Out-String -Stream | Select-String -Pattern $pattern
 }
 
 Function clear-ssh-agent { 
@@ -236,10 +236,10 @@ Function clear-ssh-agent {
 }
 
 Function stop-team-viewer {
-  cmd.exe /c "taskkill /t /f /im teamviewer*"
+        cmd.exe /c "taskkill /t /f /im teamviewer*"
 }
 
 Function stop-process {
-  param([string]$in)
-  Stop-Process -Name "$in"
+        param([string]$in)
+        Stop-Process -Name "$in"
 }
